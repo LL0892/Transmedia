@@ -24,4 +24,10 @@ angular.module('transmedApp')
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('thing');
     });
+
+    $scope.leaders = [
+      {'name' : 'abc', 'rank' : '1', 'score' : '1000'}, 
+      {'name' : 'def', 'rank' : '2', 'score' : '700'}, 
+      {'name' : 'ghi', 'rank' : '3', 'score' : '500'}
+    ];
   });
