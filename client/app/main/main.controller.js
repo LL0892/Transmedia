@@ -25,9 +25,10 @@ angular.module('transmedApp')
       socket.unsyncUpdates('thing');
     });
 
-    $scope.leaders = [
-      {'name' : 'abc', 'rank' : '1', 'score' : '1000'}, 
-      {'name' : 'def', 'rank' : '2', 'score' : '700'}, 
-      {'name' : 'ghi', 'rank' : '3', 'score' : '500'}
-    ];
+    $scope.stats = function(){
+      $http.get('/api/score').success(function(scores){
+        $scope.scores = scores;
+        socket.syncUpdates('score', $scope.scores);
+      });
+    }
   });
