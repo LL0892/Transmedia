@@ -26,7 +26,7 @@ angular.module('transmedApp')
     });
 
     $scope.stats = function(){
-      $http.get('/api/score').success(function(scores){
+      $http.get('/api/scores').success(function(scores){
         $scope.scores = scores;
         socket.syncUpdates('score', $scope.scores);
       });
